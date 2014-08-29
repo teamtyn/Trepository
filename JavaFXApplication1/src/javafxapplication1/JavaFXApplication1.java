@@ -21,11 +21,11 @@ public class JavaFXApplication1 extends Application {
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
-        btn.setText("Say 'Hello World'");
+        btn.setText("Say 'Hello David'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Hello World! David changed this because reasons");
+                System.out.println("Hello David!");
             }
         });
         
@@ -34,7 +34,7 @@ public class JavaFXApplication1 extends Application {
         
         Scene scene = new Scene(root, 300, 250);
         
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Hello David!");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
