@@ -19,9 +19,5 @@ Main Success Scenario: 1. Player is approached by NPC, initiating interaction.
                        4. Player fights with NPC via battle interface.
                        5. One of the two ships is destroyed in battle.
 
-Extensions/Alternative Flows: 1. Player attempts to save and exit game mid-battle/interaction.
-                                    - Process save game.
-                                    - Re-enter battle at starting position with correct healths, essentially restart battle when game is loaded.
-                              2. Player hard-closes game mid-battle/interaction (or shuts down computer, etc.).
-                                    - Upon loading, if battle was not terminated properly, will revert back to last save.
-                                    - Punishment will be half of current wealth taken from you for tampering.
+Extensions/Alternative Flows: 1. Player hard-closes game mid-battle/interaction (or shuts down computer, etc.).
+                                    - Upon loading, player will be back in the last city they saved in.
