@@ -1,0 +1,27 @@
+Ship Destruction Use Case
+Ryan Burns
+
+Title: Destroy ships
+
+Primary Actor: The player
+
+Stakeholders: The player wants to have options to attempt escape or attempt surrender, or the option to fight it out with the given NPC.
+
+Precondition: The player is traveling to a planet, and is approached by either a pirate, police officer, or trader who is not friendly.
+
+Postcondition: If attempting escape, either the player escapes NPC interaction without punishment, or is dealt a health deduction and entered into battle if caught by NPC.
+               If attempting surrender, either the player successfully surrenders and pays a prorated fee to the NPC for their "loss", or is entered into battle normally.
+               If attempting to fight the NPC, the animation for fighting will open, and the player will have a chance to kill the enemy ship or be destroyed.
+
+Main Success Scenario: 1. Player is approached by NPC, initiating interaction.
+                       2. Player chooses from escape, surrender, or fight.
+                       3. Proper odds are applied, and either interaction is ended appropriately, or battle begins.
+                       4. Player fights with NPC via battle interface.
+                       5. One of the two ships is destroyed in battle.
+
+Extensions/Alternative Flows: 1. Player attempts to save and exit game mid-battle/interaction.
+                                    - Process save game.
+                                    - Re-enter battle at starting position with correct healths, essentially restart battle when game is loaded.
+                              2. Player hard-closes game mid-battle/interaction (or shuts down computer, etc.).
+                                    - Upon loading, if battle was not terminated properly, will revert back to last save.
+                                    - Punishment will be half of current wealth taken from you for tampering.
