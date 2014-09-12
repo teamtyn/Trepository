@@ -1,0 +1,30 @@
+Ship Shop Use Case
+Clayton Kucera
+
+Title: Patronize the Ship-Shop
+
+Primary Actor: The Player
+
+Stakeholders: The player wants to have the option to purchase several different ships and the option to upgrade their ships. The player wants the option to sell his ship at severely reduced prices. The player wants a shopkeeper who is attractive and courteous.
+
+Precondition: The player is located in a Station, and enters the Ship-Shop.
+
+Postcondition: The action is completed, or if failed, the action is not completed.
+               
+
+    Success Scenario A - Player attempts to buy a ship and upgrade: 
+                1. Player enters the Ship Shop, initiating a shop dialogue asking 'BUY or SELL?'
+                2. Player selects BUY and the buying dialogue appears. The dialogue consists of a menu with two tabs, Ships and Upgrades. Beneath the Ships Tab there is a scrollable list of ships models with their prices listed, and beneath the Upgrades Tab there is a scrollable list of upgrades with their prices listed.
+                3. Player navigates under Ships and selects a mid-priced model. The player confirms the purchase and if he has enough money, the player will receive the ship and the price will be deducted from his funds.
+                4. Player navigates under Upgrades and selects the an Upgrade. The player selects the ship that he wants to receive the upgrade. The player confirms the purchase and if he has enough money, the cost is deducted from his funds and his Ship receives the Upgrade.
+                5. The Player presses the exit key twice and exits the shop dialogue.
+    Success Scenario B - Player attempts to sell a ship: 
+                1. Player enters the Ship Shop, initiating a shop dialogue asking 'BUY or SELL?'
+                2. Player selects SELL and the selling dialogue appears. The dialogue consists of a menu with two tabs, Ships and Upgrades. Beneath the Ships Tab there is a scrollable list of the player's current ships with their resale prices listed.
+                3. Player navigates under Ships and selects a Ship. The player confirms the sale. 
+                    -If it is not his last ship, the player will lose the ship and the resale price will be added to his funds.
+                    -If it is his last ship, the player will not be able to sell it.
+                4. The Player presses the exit key twice and exits the shop dialogue.
+
+Extensions/Alternative Flows: 1. Player hard-closes game mid-shopping spree (or shuts down computer, etc.).
+                                    - Upon loading, player will be back at the point of his last save. No purchases after the last save will be remembered.
