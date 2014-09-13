@@ -27,9 +27,9 @@ Main Success Scenario:
     6. The new scene loads.
 
 Extensions/Alternative Flows:
-    5. The game state is unable to be written to disk due to some error.
-    6. A dialog appears informing the player that the save was unsuccessful.
-    7. The player is given the option to Abort, Retry, or Fail.
+    4. The game state is unable to be written to disk due to some error.
+    5. A dialog appears informing the player that the save was unsuccessful.
+    6. The player is given the option to Abort, Retry, or Fail.
         - If the player chooses Abort:
             1. The game quits unceremoniously.
             2. The player is left dazed and confused.
