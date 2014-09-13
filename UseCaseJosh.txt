@@ -1,0 +1,27 @@
+Space Flight Use Case
+Josh Dotson
+
+Title:		Travel to Planet
+
+Primary Actor:  The player
+
+Stakeholders:   The player's goal is to get from one planet to another without running out of fuel
+		or having an an encounter with pirates or law enforcement.
+		Other autonomous traders also wish to travel uninterrupted.
+
+Precondition:   The player has enough fuel to travel the desired distance.
+
+Postcondition:  The player arrives at the desire system.
+		The player encounters a debris field and must navigate through, potentially destroying ship.
+		The player encounters a pirate that attempts to destroy/rob the player's ship.
+		The player encounters a police officer that attempts to search the ship.
+
+Main Success Scenario:
+		1. Player decides to warp to a new system.
+		2. Player opens warp interface and selects system. Estimated fuel costs are calculated.
+		3. Player attempts to warp to system.
+		4. All encounters are cleared and player reaches destination to trade goods.
+
+Extensions/Alternative Flows: 
+		Player ship is destroyed in an encounter.
+		Player abandons route and decides to warp elsewhere.
