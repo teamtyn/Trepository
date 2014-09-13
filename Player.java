@@ -1,3 +1,5 @@
+package javafxml.skillinterfacetest.cs2340.player;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,11 @@ public class Player{
     //Setter for name
     public void setName(String newName){
         this.name = newName;
+
+    }
+    public void setSkillList(List<Skill> newSkills) {
+         skills = newSkills;
+        
     }
         
     //Setter for value of a specified skill

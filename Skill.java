@@ -1,3 +1,5 @@
+package javafxml.skillinterfacetest.cs2340.player;
+
 public class Skill{
     private String type;
     private int value;
@@ -25,7 +27,7 @@ public class Skill{
     
     //Setter for value
     public void setValue(int newValue){
-        this.value = value;
+        this.value = newValue;
     }
     
     //Increase the value of skill by specified amount
