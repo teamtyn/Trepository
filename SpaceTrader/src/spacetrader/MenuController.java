@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package spacetrader;
+package javafxml.skillinterfacetest.cs2340;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +20,11 @@ public class MenuController implements Initializable, ControlledScreen {
     
     @FXML
     private ScreensController parentController;
+    
+    @FXML
+    private void startButtonAction(ActionEvent event) {
+        parentController.setScreen("SkillSetup");
+    }
     
     @FXML
     private void exitButtonAction(ActionEvent event) {

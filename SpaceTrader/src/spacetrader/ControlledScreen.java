@@ -37,7 +37,7 @@
  * only if the new code is made subject to such option by the copyright
  * holder.
  */ 
-package spacetrader;
+package javafxml.skillinterfacetest.cs2340;
 
 /**
  *
@@ -46,5 +46,5 @@ package spacetrader;
 public interface ControlledScreen {
     
     //This method will allow the injection of the Parent ScreenPane
-    public void setScreenParent(ScreensController parentControllerS);
+    public void setScreenParent(ScreensController parentControllers);
 }
