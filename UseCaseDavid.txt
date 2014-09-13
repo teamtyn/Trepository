@@ -1,0 +1,25 @@
+Trading goods with traders
+David Purcell
+
+Title: Trading goods for the good of trade
+
+Primary Actor: The Player
+
+Stakeholders: The player wants to trade goods with another trader for the max they can get.  The other trader also wants the same, unless they have another motivating factor.
+
+Precondition: The player encounters another trader and initiates trading
+
+Postcondition: The trade goes through and the player loses some goods gain others, or there is no deal made and both traders leave.
+               
+
+    Success Scenario A - Player attempts to trade with another trader: 
+1.	 Player encounters another trader and initiates trade dialog
+2.	Player views screen showing what they have (goods A,B,C) and what the other trader (goods 1,2,3) has.
+3.	Player selects 10 of his good A to trade in for 5 of the trader’s good 2 and $5.  The trader counter offers with 3 of good 2 for 10 of good A and $10
+4.	The player clicks accept and the goods and money are exchanged.  
+    Success Scenario B – Another trader attempts to play with the player
+1.	Player is given a dialog asking if they would like to view trade offer.
+2.	Offer comes up showing the other trader would like to buy 20 of good A for $400.
+3.	Player adjusts the offer to $500 and the other trader accepts
+Alternative Flows: 
+Player closes game mid-transaction:  Upon loading, player will discover that he has been swindled by the other trader and be missing all goods they offered to the other trader.
