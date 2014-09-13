@@ -1,0 +1,43 @@
+Game Save Use Case
+Nico de Leon
+ndeleon6
+
+Title: Autosave the game
+
+Primary Actor: The Player
+
+Stakeholders:
+    The player wants to have the option to quit the game and retain their
+    progress, so that they can claim the ability to "stop whenever they like".
+
+Precondition:
+    Before saving, the player has completed any actions that would prevent a
+    scene transition, e.g. closed all modal dialogs, completed combat, etc.
+
+Postcondition:
+    The state of the game is saved as of the end of the scene, to potentially
+    be reloaded at some time in the future.
+
+Main Success Scenario:
+    1. The player initiates a switch between scenes.
+    2. The current scene is made unavailable for interaction.
+    3. The current scene and any actions taken in it are finalized.
+    4. The game state is serialized and saved to disk.
+    5. A notification is made to the player that the game was autosaved.
+    6. The new scene loads.
+
+Extensions/Alternative Flows:
+    1. The game state is unable to be written to disk due to some error.
+    2. A dialog appears informing the player that the save was unsuccessful.
+    3. The player is given the option to Abort, Retry, or Fail.
+        - If the player chooses Abort:
+            1. The game quits unceremoniously.
+            2. The player is left dazed and confused.
+        - If the player chooses Retry:
+            1. The game attempts to save the game state to disk again.
+                - If the save is successful, continue the scene change normally.
+                - If the save is unsuccessful, show the dialog again.
+        - If the player chooses Fail:
+            1. The game informs the player that their state has not been saved,
+               and that their progress may be lost if they continue playing.
+            2. The scene change continues normally.
