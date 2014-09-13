@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="262.0" prefWidth="403.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.skillinterfacetest.cs2340.MenuController">
+    <children>
+        <Button fx:id="startButton" layoutX="164.0" layoutY="122.0" onAction="#startButtonAction" text="Start Game" />
+        <Label layoutX="153.0" layoutY="85.0" minHeight="16" minWidth="69" text="Space Trader">
+         <font>
+            <Font size="17.0" />
+         </font></Label>
+      <Button fx:id="exitButton" layoutX="168.0" layoutY="153.0" mnemonicParsing="false" onAction="#exitButtonAction" text="Exit Game" />
+    </children>
+</AnchorPane>
