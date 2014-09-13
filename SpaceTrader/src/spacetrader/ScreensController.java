@@ -39,7 +39,7 @@
  * 
  */ 
 
-package spacetrader;
+package javafxml.skillinterfacetest.cs2340;
 
 import java.util.HashMap;
 import javafx.animation.KeyFrame;

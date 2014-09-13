@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package spacetrader;
+package javafxml.skillinterfacetest.cs2340;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +22,7 @@ public class SpaceTrader extends Application {
     public void start(Stage stage) throws Exception {
         ScreensController mainContainer = new ScreensController();
         mainContainer.loadScreen("Menu","Menu.fxml");
+        mainContainer.loadScreen("SkillSetup","SkillSetup.fxml");
         mainContainer.setScreen("Menu");
         
         Group root = new Group();
