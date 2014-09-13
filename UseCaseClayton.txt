@@ -22,8 +22,8 @@ Postcondition:  - The player has obtained a ship or a ship upgrade and his funds
                 5. The Player backs out of the current display and selects 'SELL'.
             Part B: Selling
                 1. Player selects SELL and the selling dialogue appears. The system displays a scrollable list of the player's current ships with their resale prices.
-                3. Player navigates under Ships and selects a ship. The player confirms the sale. 
-                4. The system takes the ship from the player and adds the price of its resale value to his funds.
+                2. Player navigates under Ships and selects a ship. The player confirms the sale. 
+                3. The system takes the ship from the player and adds the price of its resale value to his funds.
                 4. The Player exits the shop dialogue. Once he exits the dialogue, the scenario ends.
 
 Extensions/Alternative Flows: 1. Player hard-closes game mid-shopping spree (or shuts down computer, etc.).
