@@ -216,6 +216,12 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         setUpControls();
     }
     
+    @FXML
+    private void cancelButtonAction(ActionEvent event) {
+        parentController.setScreen("Menu");
+
+    }
+    
         @FXML
     private void plusButtonAction(ActionEvent event) {
         Node n = (Node) event.getSource();
