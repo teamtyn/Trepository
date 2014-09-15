@@ -80,9 +80,9 @@
          </center>
       </BorderPane>
       <VBox layoutX="11.0" layoutY="61.0" />
-      <Button fx:id="doneButton" layoutX="272.0" layoutY="14.0" mnemonicParsing="false" text="DONE" />
+      <Button layoutX="272.0" layoutY="14.0" mnemonicParsing="false" onAction="#doneButtonAction" text="DONE" />
       <ProgressBar fx:id="totalBar" layoutX="109.0" layoutY="201.0" prefHeight="34.0" prefWidth="197.0" progress="0.01" />
-      <Label fx:id="totalLabel" alignment="CENTER" layoutX="309.0" layoutY="201.0" prefHeight="34.0" prefWidth="43.0" text="total" textAlignment="CENTER" underline="true" />
+      <Label fx:id="totalLabel" alignment="CENTER" layoutX="309.0" layoutY="201.0" prefHeight="34.0" prefWidth="43.0" text="total" textAlignment="CENTER" />
       <Button layoutX="23.0" layoutY="210.0" mnemonicParsing="false" onAction="#cancelButtonAction" text="Cancel" />
    </children>
 </AnchorPane>

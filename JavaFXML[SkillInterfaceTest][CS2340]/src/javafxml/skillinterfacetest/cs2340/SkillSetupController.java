@@ -145,7 +145,7 @@ public class SkillSetupController implements Initializable, ControlledScreen {
     Label[] pointLabelArray;
     Button[] minusButtonArray;
     Button[] plusButtonArray;
-    ProgressBar[] bars;
+    ProgressBar[] barsArray;
     int[] skillPointArray;
     int avgValue = 10;
     int barMax = 30;
@@ -153,36 +153,14 @@ public class SkillSetupController implements Initializable, ControlledScreen {
     int totalPts = 50;
     private ScreensController parentController;
 
-    /**
-     * Initializes the controller class.
-     */
+    // Initializes the controller class
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         plusButtonArray = new Button[] {plus0, plus1, plus2, plus3, plus4};
         minusButtonArray = new Button[] {minus0, minus1, minus2, minus3, minus4};
         pointLabelArray = new Label[] {points0, points1, points2, points3, points4};
-        bars = new ProgressBar[] {bar0, bar1, bar2, bar3, bar4};
-        //Setting up Player and Skills
+        barsArray = new ProgressBar[] {bar0, bar1, bar2, bar3, bar4};
         setUp();
-
-        //the doneButton's OnAction
-        doneButton.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                
-                updatePlayerSkills();
-                String closingMessage;
-                closingMessage = "~~~PLAYER INFORMATION~~~\nNAME: " + 
-                        player.getName() + "\nSKILLS: \n";
-                for(Skill skill : player.getSkills()) {
-                 closingMessage = closingMessage + skill.getType() + " - " + skill.getValue() + "\n";
-                }
-                System.out.println("This is the end of our game. Look out for the sequel: '" + player.getName() + " Clicks Buttons II: Even More Buttons!'");
-                System.out.println(closingMessage);
-                System.exit(1);
-            }
-        });
     }
 
     // Synchronizes Player's skills with the GUI for skill selection
@@ -197,79 +175,55 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         this.parentController = parentController;
     }
 
-    /**
-     *
-     */
-    public void setUp() {
+    private void setUp() {
         createSkillListAndPlayer();
         setUpControls();
     }
-    
-    @FXML
-    private void cancelButtonAction(ActionEvent event) {
-        parentController.setScreen("Menu");
 
-    }
-    
-        @FXML
-    private void plusButtonAction(ActionEvent event) {
-        Node n = (Node) event.getSource();
-        //System.out.println(minusButtonMap.get(n.getId()));
-        addToSkill(buttonMap.get(n.getId()));
-    }
-    
     private void addToSkill(int index) {
         int skillPoints = skillPointArray[index];
-        if((skillPoints < barMax) &&(totalPts < maxPts)) {
+        if ((skillPoints < barMax) && (totalPts < maxPts)) {
             skillPoints++;
             totalPts++;
-    }
+        }
         skillPointArray[index] = skillPoints;
-
         updateProgressBar(index, skillPoints);
         updatePointLabel(index, skillPoints);
-
     }
-    
+
     @FXML
     private void minusButtonAction(ActionEvent event) {
         Node n = (Node) event.getSource();
         //System.out.println(minusButtonMap.get(n.getId()));
         subtractFromSkill(minusButtonMap.get(n.getId()));
     }
-    
+
     private void subtractFromSkill(int index) {
         int skillPoints = skillPointArray[index];
         if(skillPoints > 0) {
             skillPoints--;
             totalPts--;
         }
-        
         skillPointArray[index] = skillPoints;
         updateProgressBar(index, skillPoints);
         updatePointLabel(index, skillPoints);
     }
-    
+
     private void updatePointLabel(int index, int points) {
         pointLabelArray[index].setText("" + points);
     }
-    
+
     private void updateProgressBar(int index, int points) {
-        bars[index].setProgress((float)points/(float)barMax);
+        barsArray[index].setProgress((float)points/(float)barMax);
         updateTotalDisplays();
     }
-    
+
     private void updateTotalDisplays() {
         totalBar.setProgress((float) (maxPts - totalPts)/(float)maxPts);
         totalLabel.setText("" + (maxPts - totalPts));
-    
     }
-    
-    /**
-     *
-     */
-    public void createSkillListAndPlayer() {
-            //skills
+
+    private void createSkillListAndPlayer() {
             Skill intelligence = new Skill("Intelligence");
             Skill looks = new Skill("Looks");
             Skill bloodPressure = new Skill("Blood Pressure");
@@ -278,13 +232,13 @@ public class SkillSetupController implements Initializable, ControlledScreen {
             List<Skill> skills = new ArrayList<>(asList(intelligence, looks, intuition, bloodPressure, luck));
             createPlayer(skills);
     }
-    
+
     /**
-     *Creates a Player, for testing out this interface
+     * Creates a Player, for testing out this interface
      * @param newSkills
      * @see Player
      */
-    public void createPlayer(List<Skill> newSkills) {
+    private void createPlayer(List<Skill> newSkills) {
         //create the player and set the skills
             player.setName("Joe");
             player.setSkillList(newSkills); 
@@ -298,7 +252,7 @@ public class SkillSetupController implements Initializable, ControlledScreen {
      *      sets the points displayed on the right of the sliders
      *      instantiates an array of ints that will hold the points for each skill
      */
-    public void setUpControls() {
+    private void setUpControls() {
         labelArray = new Label[] {skill0, skill1, skill2, skill3, skill4};
         for(int i = 0; i < labelArray.length; i++) {
             labelArray[i].setText(player.getSkills().get(i).getType());
@@ -318,12 +272,34 @@ public class SkillSetupController implements Initializable, ControlledScreen {
             skillPointArray[i] = avgValue;
             
         }
-
         for(int i = 0; i < plusButtonArray.length; i++) {
             buttonMap.put(plusButtonArray[i].getId(), i);
             minusButtonMap.put(minusButtonArray[i].getId(), i);
             updateProgressBar(i, avgValue);
             updatePointLabel(i, avgValue);
         }
+    }
+
+    // All button handlers from here on out
+    @FXML
+    private void cancelButtonAction(ActionEvent event) {
+        parentController.setScreen("Menu");
+    }
+    @FXML
+    private void doneButtonAction(ActionEvent event) {
+        updatePlayerSkills();
+        String closingMessage;
+        closingMessage = "~~~PLAYER INFORMATION~~~\nNAME: " + player.getName() + "\nSKILLS: \n";
+        for(Skill skill : player.getSkills()) {
+            closingMessage = closingMessage + skill.getType() + " - " + skill.getValue() + "\n";
+        }
+        System.out.println("This is the end of our game. Look out for the sequel: '" + player.getName() + " Clicks Buttons II: Even More Buttons!'");
+        System.out.println(closingMessage);
+        System.exit(1);
+    }
+    @FXML
+    private void plusButtonAction(ActionEvent event) {
+        Node n = (Node) event.getSource();
+        addToSkill(buttonMap.get(n.getId()));
     }
 }
