@@ -47,7 +47,6 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -55,14 +54,14 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 /**
- *
- * @author Angie
+ * @author TYN
+ * @version 1.0
  */
 public class ScreensController  extends StackPane {
-    //Holds the screens to be displayed
 
+    //Holds the screens to be displayed
     private HashMap<String, Node> screens;
-    
+
     public ScreensController() {
         super();
         screens = new HashMap<>();
@@ -101,7 +100,6 @@ public class ScreensController  extends StackPane {
     public boolean setScreen(final String name) {       
         if (screens.get(name) != null) {   //screen loaded
             final DoubleProperty opacity = opacityProperty();
-
             if (!getChildren().isEmpty()) {    //if there is more than one screen
                 Timeline fade = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 1.0)),
@@ -114,7 +112,6 @@ public class ScreensController  extends StackPane {
                             fadeIn.play();
                 }, new KeyValue(opacity, 0.0)));
                 fade.play();
-
             } else {
                 setOpacity(0.0);
                 getChildren().add(screens.get(name));       //no one else been displayed, then just show

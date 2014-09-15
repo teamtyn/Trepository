@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package javafxml.skillinterfacetest.cs2340;
 import javafxml.skillinterfacetest.cs2340.player.*;
 
@@ -25,11 +19,10 @@ import java.util.List;
 import java.util.Map;
 import javafx.scene.Node;
 
-
 /**
  * FXML Controller class
- *
- * @author Local Clayton
+ * @author Clayton
+ * @version 1.0
  */
 public class SkillSetupController implements Initializable, ControlledScreen {
 
@@ -143,29 +136,26 @@ public class SkillSetupController implements Initializable, ControlledScreen {
     
     @FXML
     private ProgressBar totalBar;
-    
-    
-    //Non FXML - related members
-        Map<String, Integer> buttonMap = new HashMap<String, Integer>(5);
-        Map<String, Integer> minusButtonMap = new HashMap<String, Integer>(5);
+
+    Map<String, Integer> buttonMap = new HashMap<>(5);
+    Map<String, Integer> minusButtonMap = new HashMap<>(5);
         
-        Player player = new Player();
-        Label[] labelArray = new Label[0];
-        Label[] pointLabelArray;
-        Button[] minusButtonArray;
-        Button[] plusButtonArray;
-        ProgressBar[] bars;
-        int[] skillPointArray;
-        int avgValue = 10;
-        int barMax = 30;
-        int maxPts = 75;
-        int totalPts = 50;
-        private ScreensController parentController;
-        
+    Player player = new Player();
+    Label[] labelArray;
+    Label[] pointLabelArray;
+    Button[] minusButtonArray;
+    Button[] plusButtonArray;
+    ProgressBar[] bars;
+    int[] skillPointArray;
+    int avgValue = 10;
+    int barMax = 30;
+    int maxPts = 75;
+    int totalPts = 50;
+    private ScreensController parentController;
+
     /**
      * Initializes the controller class.
      */
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         plusButtonArray = new Button[] {plus0, plus1, plus2, plus3, plus4};
@@ -174,7 +164,6 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         bars = new ProgressBar[] {bar0, bar1, bar2, bar3, bar4};
         //Setting up Player and Skills
         setUp();
-            
 
         //the doneButton's OnAction
         doneButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -195,19 +184,19 @@ public class SkillSetupController implements Initializable, ControlledScreen {
             }
         });
     }
-    
+
+    // Synchronizes Player's skills with the GUI for skill selection
     private void updatePlayerSkills() {
-       System.out.println(player.getSkills().size());
         for (int i = 0; i < player.getSkills().size(); i++) {
            player.getSkills().get(i).setValue(skillPointArray[i]);
-
        } 
     }
-    
+
     @Override
     public void setScreenParent(ScreensController parentController) {
         this.parentController = parentController;
     }
+
     /**
      *
      */
@@ -300,7 +289,7 @@ public class SkillSetupController implements Initializable, ControlledScreen {
             player.setName("Joe");
             player.setSkillList(newSkills); 
     }
-    
+
     /**
      * This method:
      *      sets labelArray to an array of label next to the sliders. It
@@ -314,9 +303,6 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         for(int i = 0; i < labelArray.length; i++) {
             labelArray[i].setText(player.getSkills().get(i).getType());
         }
-        
-        
-
 
 //        for (int i = 0; i < sliders.getChildren().size() - 1; i++) {
 //            HBox hbox = (HBox) sliders.getChildren().get(i);
@@ -332,16 +318,12 @@ public class SkillSetupController implements Initializable, ControlledScreen {
             skillPointArray[i] = avgValue;
             
         }
-        
+
         for(int i = 0; i < plusButtonArray.length; i++) {
             buttonMap.put(plusButtonArray[i].getId(), i);
             minusButtonMap.put(minusButtonArray[i].getId(), i);
             updateProgressBar(i, avgValue);
             updatePointLabel(i, avgValue);
         }
-
-        
     }
-    
-    
 }
