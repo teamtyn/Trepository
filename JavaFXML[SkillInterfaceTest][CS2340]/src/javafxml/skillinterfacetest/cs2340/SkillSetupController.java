@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.*;
 
 import java.util.ArrayList;
@@ -103,6 +102,9 @@ public class SkillSetupController implements Initializable, ControlledScreen {
     
     @FXML
     private ProgressBar totalBar;
+
+    @FXML
+    private TextField nameField;
 
     private Map<String, Integer> plusButtonMap = new HashMap<>(5);
     private Map<String, Integer> minusButtonMap = new HashMap<>(5);  
@@ -229,15 +231,15 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         parentController.setScreen("Menu");
     }
     @FXML
-    private void nameConfirmButtonAction(ActionEvent event) {
-        player.setName("");
-    }
-    @FXML
     private void resetButtonAction(ActionEvent event) {
         //TO DO
     }
     @FXML
     private void doneButtonAction(ActionEvent event) {
+        String name = nameField.getText();
+        if (name != null && !name.trim().equals("")) {
+            player.setName(nameField.getText());
+        }
         updatePlayerSkills();
         String closingMessage;
         closingMessage = "~~~PLAYER INFORMATION~~~\nNAME: " + player.getName() + "\nSKILLS: \n";
@@ -246,7 +248,7 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         }
         System.out.println("This is the end of our game. Look out for the sequel: '" + player.getName() + " Clicks Buttons II: Even More Buttons!'");
         System.out.println(closingMessage);
-        System.exit(1);
+        System.exit(0);
     }
     @FXML
     private void plusButtonAction(ActionEvent event) {

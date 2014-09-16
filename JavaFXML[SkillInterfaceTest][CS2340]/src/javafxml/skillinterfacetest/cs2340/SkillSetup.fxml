@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -9,27 +10,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="267.0" prefWidth="447.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.skillinterfacetest.cs2340.SkillSetupController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxml.skillinterfacetest.cs2340.SkillSetupController">
     <stylesheets>
         <URL value="@skillsetup.css" />
     </stylesheets>
    <children>
-      <BorderPane layoutX="11.0" layoutY="14.0" prefHeight="279.0" prefWidth="285.0" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="14.0">
-         <top>
-            <VBox fx:id="labels" alignment="TOP_CENTER" prefHeight="47.0" prefWidth="285.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Label fx:id="topLabel" alignment="CENTER" prefHeight="27.0" prefWidth="200.0" text="Adjust your stats." textAlignment="CENTER" />
-                  <Label fx:id="comment" alignment="CENTER" contentDisplay="CENTER" layoutY="62.0" prefHeight="38.0" prefWidth="200.0" text="Choose wisely!" textAlignment="CENTER">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-         </top>
+      <BorderPane layoutX="11.0" layoutY="14.0" prefHeight="279.0" prefWidth="400.0" AnchorPane.bottomAnchor="57.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="14.0">
          <center>
             <VBox fx:id="barBox" alignment="CENTER" prefHeight="149.0" prefWidth="494.0" BorderPane.alignment="TOP_CENTER">
                <children>
+                  <HBox alignment="CENTER" prefHeight="25.0" prefWidth="350.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="25.0" prefWidth="50.0" text="Name:" />
+                        <TextField fx:id="nameField" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </HBox>
                   <HBox fx:id="container4" layoutX="35.0" layoutY="-136.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="350.0">
                      <children>
                         <Label fx:id="skill4" prefHeight="25.0" prefWidth="115.0" text="skill" />
@@ -75,14 +73,49 @@
                         <Label fx:id="points3" prefHeight="31.0" prefWidth="87.0" text="points" />
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER" layoutY="-36.0" prefHeight="25.0" prefWidth="350.0">
+                     <children>
+                        <ProgressBar fx:id="totalBar" prefHeight="45.0" prefWidth="200.0" progress="0.01" />
+                        <Label fx:id="totalLabel" alignment="CENTER" prefHeight="34.0" prefWidth="43.0" text="total" textAlignment="CENTER" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
                </children>
             </VBox>
          </center>
+         <left>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefWidth="80.0" text="Reset">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#cancelButtonAction" prefWidth="80.0" text="Cancel">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#doneButtonAction" prefHeight="27.0" prefWidth="80.0" text="Done">
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <BorderPane.margin>
+                  <Insets left="20.0" top="50.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+         <top>
+            <TextField alignment="CENTER" prefHeight="100.0" text="Choose wisely!" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+         </top>
       </BorderPane>
-      <VBox layoutX="11.0" layoutY="61.0" />
-      <Button layoutX="272.0" layoutY="14.0" mnemonicParsing="false" onAction="#doneButtonAction" text="DONE" />
-      <ProgressBar fx:id="totalBar" layoutX="109.0" layoutY="201.0" prefHeight="34.0" prefWidth="197.0" progress="0.01" />
-      <Label fx:id="totalLabel" alignment="CENTER" layoutX="309.0" layoutY="201.0" prefHeight="34.0" prefWidth="43.0" text="total" textAlignment="CENTER" />
-      <Button layoutX="23.0" layoutY="210.0" mnemonicParsing="false" onAction="#cancelButtonAction" text="Cancel" />
    </children>
 </AnchorPane>

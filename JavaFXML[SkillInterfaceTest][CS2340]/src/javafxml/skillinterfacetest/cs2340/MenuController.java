@@ -22,7 +22,7 @@ public class MenuController implements Initializable, ControlledScreen {
 
     @FXML
     private void exitButtonAction(ActionEvent event) {
-        System.exit(1);
+        System.exit(0);
     }
 
     @Override
