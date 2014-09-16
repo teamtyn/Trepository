@@ -232,7 +232,8 @@ public class SkillSetupController implements Initializable, ControlledScreen {
     }
     @FXML
     private void resetButtonAction(ActionEvent event) {
-        //TO DO
+        nameField.setText("");
+        setUpControls();
     }
     @FXML
     private void doneButtonAction(ActionEvent event) {
