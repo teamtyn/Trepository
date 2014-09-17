@@ -13,4 +13,8 @@ public class Shipyard extends Planet{
     public Shipyard(String name){
         super(name);
     }
+    
+    public String toString(){
+        return super.toString() + " ALSO A SHIPYARD";
+    }
 }

@@ -9,6 +9,11 @@ package javafxml.skillinterfacetest.cs2340.star_system;
  *
  * @author Purcell7
  */
-public class Resource {
-    
+public class Universe {
+    public static void main(String[] args){
+        StarSystem[] starSystems = {new StarSystem("1"), new StarSystem("2"), new StarSystem("3")};
+        for(StarSystem sys : starSystems){
+            System.out.println(sys);
+        }
+    }
 }
