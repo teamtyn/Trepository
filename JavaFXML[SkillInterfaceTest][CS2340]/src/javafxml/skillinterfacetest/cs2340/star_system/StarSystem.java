@@ -12,6 +12,7 @@ public class StarSystem {
     private Point2D coordinates;
     private Planet[] planets;
     private Random random = new Random();
+    private String[] names = {"1","2","3","4","5","6","7","8","9","10"};
     
     public StarSystem(String name){
         this.name = name;
@@ -20,11 +21,16 @@ public class StarSystem {
     
     private void generateSystem(){
         //Nico make better, this is just filler for now
-        planets = new Planet[random.nextInt(10) + 1];
+        coordinates = new Point2D(random.nextDouble() * 700 + 50, random.nextDouble() * 500 + 50);//Range <-50.0, -50.0> - <50.0,50.0>
+        planets = new Planet[random.nextInt(6) + 4];
         for(int i=0; i<planets.length - 1; i++){
-            planets[i] = new Planet("Names are hard");
+            planets[i] = new Planet(names[i % 10]);
         }
-        planets[planets.length - 1] = new Shipyard("Ships to the yard");//Do all systems have?
+        planets[planets.length - 1] = new Shipyard("Shipyard");//Do all systems have?
+    }
+    
+    public String getName(){
+        return name;
     }
     
     public Planet[] getPlanets(){
@@ -44,13 +50,20 @@ public class StarSystem {
         return coordinates;
     }
     
+    public double getCoordinateX(){
+        return coordinates.getX();
+    }
+    
+    public double getCoordinateY(){
+        return coordinates.getY();
+    }
+    
     public String toString(){
         StringBuilder str = new StringBuilder("System: ")
             .append(name)
-            .append("\n")
-            .append("Star System Coordinates:\n")
+            .append("\nStar System Coordinates:\n")
             .append(coordinates)
-            .append("Planets: \n");
+            .append("\nPlanets: \n");
         for(Planet planet : planets){
             str.append(planet)
                 .append("\n");

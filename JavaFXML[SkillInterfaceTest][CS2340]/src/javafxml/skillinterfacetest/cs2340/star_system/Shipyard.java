@@ -5,6 +5,8 @@
  */
 package javafxml.skillinterfacetest.cs2340.star_system;
 
+import javafx.scene.paint.Color;
+
 /**
  *
  * @author Purcell7
@@ -12,9 +14,11 @@ package javafxml.skillinterfacetest.cs2340.star_system;
 public class Shipyard extends Planet{
     public Shipyard(String name){
         super(name);
+        this.color = Color.GREY;
+        this.size = 3;
     }
     
     public String toString(){
-        return super.toString() + " ALSO A SHIPYARD";
+        return super.toString() + "\nALSO A SHIPYARD";
     }
 }

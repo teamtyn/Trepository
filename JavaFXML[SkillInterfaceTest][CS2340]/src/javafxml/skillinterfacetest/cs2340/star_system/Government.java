@@ -1,5 +1,7 @@
 package javafxml.skillinterfacetest.cs2340.star_system;
 
+import java.util.Random;
+
 /**
  *
  * @author David Purcell
@@ -14,9 +16,10 @@ public class Government {
     private Type type;
     private String leader;
     private int anger;
+    private Random random = new Random();
     
     public Government(){
-        type = Type.CAPITALIST;
+        type = Type.values()[random.nextInt(Type.values().length)];
         leader = "David";
         anger = 0;
     }
