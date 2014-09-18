@@ -53,6 +53,10 @@ public class Planet {
         return size;
     }
     
+    public String getName(){
+        return name;
+    }
+    
     public int getOrbitDistance(){
         return orbitDistance;
     }

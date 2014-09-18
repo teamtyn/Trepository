@@ -21,7 +21,7 @@ public class StarSystem {
     
     private void generateSystem(){
         //Nico make better, this is just filler for now
-        coordinates = new Point2D(random.nextDouble() * 700 + 50, random.nextDouble() * 500 + 50);//Range <-50.0, -50.0> - <50.0,50.0>
+        coordinates = new Point2D(random.nextDouble() * 1300 + 50, random.nextDouble() * 600 + 50);//Range <-50.0, -50.0> - <50.0,50.0>
         planets = new Planet[random.nextInt(6) + 4];
         for(int i=0; i<planets.length - 1; i++){
             planets[i] = new Planet(names[i % 10]);
