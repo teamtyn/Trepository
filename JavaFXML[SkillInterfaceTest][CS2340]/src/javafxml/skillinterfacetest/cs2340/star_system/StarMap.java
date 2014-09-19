@@ -147,6 +147,15 @@ public class StarMap extends Application {
                 viewSystem(root, system, systems);
             });
         root.getChildren().add(button);
+        
+        Button revolt = new Button("sponsor revolution");
+        revolt.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent MouseEvent) -> {
+            planet.revolt();
+            planetText.setText(planet.toString());
+        });
+        revolt.setLayoutX(250);
+        revolt.setLayoutY(220);
+        root.getChildren().add(revolt);
     }
 
     /**

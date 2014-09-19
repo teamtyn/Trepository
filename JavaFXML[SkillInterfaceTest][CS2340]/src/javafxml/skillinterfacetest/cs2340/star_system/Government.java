@@ -7,7 +7,7 @@ import java.util.Random;
  * @author David Purcell
  */
 public class Government {
-    private enum Type{ANARCHY, CAPITALIST, COMMUNIST,
+    public enum Type{ANARCHY, CAPITALIST, COMMUNIST,
                         CONFEDERACY, CORPORATE, CYBERNETIC,
                         DEMOCRACY, DICTATORSHIP, FASCIST,
                         FEUDAL, MILITARY, MONARCHY,
@@ -34,7 +34,7 @@ public class Government {
         StringBuilder str = new StringBuilder("Government Type: ")
             .append(type)
             .append("\nLeader: ")
-            .append(leader)
+            .append(leader != null ? leader : "THE PEOPLE")
             .append("\nAnger Level: ")
             .append(anger);
         return str.toString();

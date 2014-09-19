@@ -16,11 +16,11 @@ public class Planet {
     protected String name;
     protected int orbitDistance;//Good way to layout system?
     protected Government government;//Object or Enum?
-    protected enum TechLevel{PreAgricultural, AGRICULTURAL, 
+    public enum TechLevel{PREAGRICULTURAL, AGRICULTURAL, 
                            MEDIVAL, RENAISSANCE, 
                            EARLYINDUSTRY, INDUSTRIAL, 
                            POSTINDUSTRAIL, HIGHTECH};
-    protected enum Resource{NO, MINERALRICH, MINERALPOOR,
+    public enum Resource{NO, MINERALRICH, MINERALPOOR,
                           DESERT, LOTSOFWATER, RICHSOIL,
                           POORSOIL, RICHFAUNA, LIFELESS,
                           WEIRDMUSHROOMS, LOTSOFHERBS,
@@ -55,6 +55,10 @@ public class Planet {
     
     public String getName(){
         return name;
+    }
+    
+    public void revolt(){
+        government.VIVALAREVOLUTION();
     }
     
     public int getOrbitDistance(){
