@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javafxml.skillinterfacetest.cs2340.star_system;
 
 import java.util.Random;
@@ -26,11 +21,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Purcell7
+ * 
+ * @author David Purcell
  */
 public class StarMap extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
         StarSystem[] systems = {new StarSystem("Sys 1"),new StarSystem("Sys 2"),new StarSystem("Sys 3"),
@@ -43,7 +38,7 @@ public class StarMap extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-    
+
     public void viewUniverse(Group root, StarSystem[] systems){
         Random random = new Random();
         for(StarSystem sys : systems){
@@ -79,9 +74,8 @@ public class StarMap extends Application {
             }
         }
     }
-    
+
     public void viewSystem(Group root, StarSystem system, StarSystem[] systems){
-        Random random = new Random();
         Text systemText = new Text(600, 50, system.getName());
         systemText.setFont(Font.font ("Verdana", 40));
         systemText.setFill(Color.WHITE);
@@ -120,9 +114,8 @@ public class StarMap extends Application {
             degrees += 360 / planets;
         }
     }
-    
+
     public void viewPlanet(Group root, Planet planet, StarSystem system, StarSystem[] systems){
-        Random random = new Random();
         Text planetTitle = new Text(600, 50, planet.getName());
         planetTitle.setFont(Font.font ("Verdana", 40));
         planetTitle.setFill(Color.WHITE);
@@ -158,11 +151,7 @@ public class StarMap extends Application {
         root.getChildren().add(revolt);
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

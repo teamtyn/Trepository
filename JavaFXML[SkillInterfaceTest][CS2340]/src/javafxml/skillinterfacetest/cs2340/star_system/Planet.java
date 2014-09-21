@@ -1,77 +1,81 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javafxml.skillinterfacetest.cs2340.star_system;
 
 import java.util.Random;
 import javafx.scene.paint.Color;
 
 /**
- *
- * @author Purcell7
+ * 
+ * @author David Purcell
  */
 public class Planet {
-    protected String name;
-    protected int orbitDistance;//Good way to layout system?
-    protected Government government;//Object or Enum?
-    public enum TechLevel{PREAGRICULTURAL, AGRICULTURAL, 
+    private final String name;
+    private int orbitDistance; //Good way to layout system? Should be a grid
+    private Government government;
+    private enum TechLevel {PREAGRICULTURAL, AGRICULTURAL, 
                            MEDIVAL, RENAISSANCE, 
                            EARLYINDUSTRY, INDUSTRIAL, 
-                           POSTINDUSTRAIL, HIGHTECH};
-    public enum Resource{NO, MINERALRICH, MINERALPOOR,
+                           POSTINDUSTRIAL, HIGHTECH};
+    private enum ResourceLevel {NOSPECIALRESOURCES, MINERALRICH, MINERALPOOR,
                           DESERT, LOTSOFWATER, RICHSOIL,
                           POORSOIL, RICHFAUNA, LIFELESS,
                           WEIRDMUSHROOMS, LOTSOFHERBS,
                           ARTISTIC, WARLIKE};
-    protected Resource resource;
-    protected TechLevel techlevel;
-    protected Random random = new Random();
-    protected Color color;
-    protected int size;
-    
-    public Planet(String name){
+    private ResourceLevel resourceLevel;
+    private TechLevel techLevel;
+    private Random random = new Random();
+    private final Color color;
+    private final int size;
+
+    public Planet(String name) {
         this.name = name;
-        generatePlanet();//Nico do this better
-    }
-    
-    protected void generatePlanet(){
-        resource = Resource.values()[random.nextInt(Resource.values().length)];
-        techlevel = TechLevel.values()[random.nextInt(TechLevel.values().length)];
+        resourceLevel = ResourceLevel.values()[random.nextInt(ResourceLevel.values().length)];
+        techLevel = TechLevel.values()[random.nextInt(TechLevel.values().length)];
         size = random.nextInt(5) + 1;
         color = Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256));
         orbitDistance = random.nextInt(30) + 20;//Distance between planet and star
         government = new Government();
     }
-    
-    public Color getColor(){
+
+    public Color getColor() {
         return color;
     }
-    
-    public int getSize(){
+
+    public int getSize() {
         return size;
     }
-    
-    public String getName(){
+
+    public String getName() {
         return name;
     }
-    
-    public void revolt(){
-        government.VIVALAREVOLUTION();
+
+    public ResourceLevel getResourceLevel() {
+        return resourceLevel;
     }
-    
-    public int getOrbitDistance(){
+
+    public TechLevel getTechLevel() {
+        return techLevel;
+    }
+
+    public void setResourceLevel(ResourceLevel newRes) {
+        resourceLevel = newRes;
+    }
+
+    public void setTechLevel(TechLevel newTech) {
+        techLevel = newTech;
+    }
+
+    public void revolt() {
+        government.revolution();
+    }
+
+    public int getOrbitDistance() {
         return orbitDistance;
     }
-    
-    public String toString(){
-        StringBuilder str = new StringBuilder("Planet: ")
-            .append(name)
-            .append("\nResource: ")
-            .append(resource)
-            .append("\nUnder rule of ")
-            .append(government);
-        return str.toString();
+
+    @Override
+    public String toString() {
+        String str = "Planet: " + name + "\nResource Level: " + resourceLevel + "\nTech Level: " + techLevel
+                        + "\nUnder rule of " + government;
+        return str;
     }
 }

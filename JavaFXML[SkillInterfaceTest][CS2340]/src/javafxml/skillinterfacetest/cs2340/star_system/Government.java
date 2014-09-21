@@ -3,11 +3,11 @@ package javafxml.skillinterfacetest.cs2340.star_system;
 import java.util.Random;
 
 /**
- *
+ * Government is defined by its type, leader, and level of anger
  * @author David Purcell
  */
 public class Government {
-    public enum Type{ANARCHY, CAPITALIST, COMMUNIST,
+    private enum Type {ANARCHY, CAPITALIST, COMMUNIST,
                         CONFEDERACY, CORPORATE, CYBERNETIC,
                         DEMOCRACY, DICTATORSHIP, FASCIST,
                         FEUDAL, MILITARY, MONARCHY,
@@ -17,26 +17,47 @@ public class Government {
     private String leader;
     private int anger;
     private Random random = new Random();
-    
-    public Government(){
+
+    public Government() {
         type = Type.values()[random.nextInt(Type.values().length)];
-        leader = "David";
+        leader = "THE PEOPLE";
         anger = 0;
     }
-    
-    public void VIVALAREVOLUTION(){
+
+    public String getLeader() {
+        return leader;
+    }
+
+    public void setLeader(String newLeader) {
+        leader = newLeader;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type newType) {
+        type = newType;
+    }
+
+    public int getAnger() {
+        return anger;
+    }
+
+    public void setAnger(int newAnger) {
+        anger = newAnger;
+    }
+
+    public void revolution() {
         type = Type.ANARCHY;
         leader = null;
         anger = Integer.MAX_VALUE;
     }
-    
-    public String toString(){
-        StringBuilder str = new StringBuilder("Government Type: ")
-            .append(type)
-            .append("\nLeader: ")
-            .append(leader != null ? leader : "THE PEOPLE")
-            .append("\nAnger Level: ")
-            .append(anger);
-        return str.toString();
+
+    @Override
+    public String toString() {
+        String str = "Government Type: " + type + "\nLeader: " + leader
+                        + "\nAnger Level: " + anger;
+        return str;
     }
 }
