@@ -40,7 +40,7 @@ public class Planet {
         resource = Resource.values()[random.nextInt(Resource.values().length)];
         techlevel = TechLevel.values()[random.nextInt(TechLevel.values().length)];
         size = random.nextInt(5) + 1;
-        color = Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256));
+        color = Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256));//TODO: Josh make fancier
         orbitDistance = random.nextInt(30) + 20;//Distance between planet and star
         government = new Government();
     }
@@ -59,6 +59,10 @@ public class Planet {
     
     public void revolt(){
         government.VIVALAREVOLUTION();
+    }
+    
+    public void becomeMonarch(String name){
+        government.imInControl(name);
     }
     
     public int getOrbitDistance(){

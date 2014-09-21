@@ -30,6 +30,12 @@ public class Government {
         anger = Integer.MAX_VALUE;
     }
     
+    public void imInControl(String name){
+        type = Type.MONARCHY;
+        leader = name;
+        anger = 0;
+    }
+    
     public String toString(){
         StringBuilder str = new StringBuilder("Government Type: ")
             .append(type)
