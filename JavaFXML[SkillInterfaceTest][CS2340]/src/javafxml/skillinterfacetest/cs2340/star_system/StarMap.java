@@ -147,8 +147,17 @@ public class StarMap extends Application {
             planetText.setText(planet.toString());
         });
         revolt.setLayoutX(250);
-        revolt.setLayoutY(220);
+        revolt.setLayoutY(225);
         root.getChildren().add(revolt);
+        
+        Button monarch = new Button("I'm in control");
+        monarch.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent MouseEvent) -> {
+            planet.becomeMonarch("David");
+            planetText.setText(planet.toString());
+        });
+        monarch.setLayoutX(250);
+        monarch.setLayoutY(250);
+        root.getChildren().add(monarch);
     }
 
     public static void main(String[] args) {

@@ -60,4 +60,10 @@ public class Government {
                         + "\nAnger Level: " + anger;
         return str;
     }
+
+    public void imInControl(String name){
+        type = Type.MONARCHY;
+        leader = name;
+        anger = 0;
+    }
 }
