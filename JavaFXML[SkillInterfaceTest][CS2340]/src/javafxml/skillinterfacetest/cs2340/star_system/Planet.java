@@ -4,12 +4,13 @@ import java.util.Random;
 import javafx.scene.paint.Color;
 
 /**
- * 
+ * Planet is defined by its government, resource level, and tech level
+ *   It has the physical characteristics of color, orbit distance, and size
  * @author David Purcell
  */
 public class Planet {
     private final String name;
-    private int orbitDistance; //Good way to layout system? Should be a grid
+    private final int orbitDistance;
     private Government government;
     private enum TechLevel {PREAGRICULTURAL, AGRICULTURAL, 
                            MEDIVAL, RENAISSANCE, 
@@ -31,13 +32,17 @@ public class Planet {
         resourceLevel = ResourceLevel.values()[random.nextInt(ResourceLevel.values().length)];
         techLevel = TechLevel.values()[random.nextInt(TechLevel.values().length)];
         size = random.nextInt(5) + 1;
-        color = Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256));//TODO: Josh make fancier
-        orbitDistance = random.nextInt(30) + 20;//Distance between planet and star
+        color = Color.rgb(random.nextInt(256), random.nextInt(256), random.nextInt(256)); //TODO: Josh make fancier
+        orbitDistance = random.nextInt(30) + 20; //Distance between planet and star, TODO: need to ensure orbits are unique
         government = new Government();
     }
 
     public Color getColor() {
         return color;
+    }
+
+    public int getOrbitDistance(){
+        return orbitDistance;
     }
 
     public int getSize() {
@@ -46,6 +51,10 @@ public class Planet {
 
     public String getName() {
         return name;
+    }
+
+    public Government getGovernment() {
+        return government;
     }
 
     public ResourceLevel getResourceLevel() {
@@ -64,16 +73,16 @@ public class Planet {
         techLevel = newTech;
     }
 
+    public void setGovernment(Government newGov) {
+        government = newGov;
+    }
+
     public void revolt() {
         government.revolution();
     }
 
-    public void becomeMonarch(String name){
-        government.imInControl(name);
-    }
-
-    public int getOrbitDistance(){
-        return orbitDistance;
+    public void becomeMonarchy(String name){
+        government.toMonarchy(name);
     }
 
     @Override

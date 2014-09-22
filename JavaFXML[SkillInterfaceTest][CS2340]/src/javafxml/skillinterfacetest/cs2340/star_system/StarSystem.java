@@ -4,7 +4,7 @@ import java.util.Random;
 import javafx.geometry.Point2D;
 
 /**
- *
+ * StarSystem contains an array of planets, and resides at some coordinates
  * @author David Purcell
  */
 public class StarSystem {
@@ -16,29 +16,25 @@ public class StarSystem {
 
     public StarSystem(String name) {
         this.name = name;
-        generateSystem();
-    }
-
-    // Nico will make better, this is just filler for now
-    private void generateSystem() {
-        coordinates = new Point2D(random.nextDouble() * 1300 + 50, random.nextDouble() * 600 + 50);//Range <-50.0, -50.0> - <50.0,50.0>
+        // Ryan - wut
+        coordinates = new Point2D(random.nextDouble() * 1300 + 50, random.nextDouble() * 600 + 50); //Range <-50.0, -50.0> - <50.0,50.0>
         planets = new Planet[random.nextInt(6) + 4];
         for (int i = 0; i < planets.length - 1; i++) {
             planets[i] = new Planet(names[i % 10]);
         }
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public Planet[] getPlanets(){
+    public Planet[] getPlanets() {
         return planets;
     }
 
     public Planet destroyPlanet(int i) {
         Planet dead = null;
-        if(i < planets.length) {
+        if (i < planets.length) {
             dead = planets[i];
             planets[i] = null;
         }
@@ -57,16 +53,13 @@ public class StarSystem {
         return coordinates.getY();
     }
 
+    @Override
     public String toString() {
-        StringBuilder str = new StringBuilder("System: ")
-            .append(name)
-            .append("\nStar System Coordinates:\n")
-            .append(coordinates)
-            .append("\nPlanets: \n");
-        for(Planet planet : planets){
-            str.append(planet)
-                .append("\n");
+        String str = "System: " + name + "\nStar System Coordinates:\n"
+                        + coordinates + "\nPlanets: \n";
+        for(Planet planet : planets) {
+            str = str + planet + "\n";
         }
-        return str.toString();
+        return str;
     }
 }

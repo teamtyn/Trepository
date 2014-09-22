@@ -61,7 +61,7 @@ public class Government {
         return str;
     }
 
-    public void imInControl(String name){
+    public void toMonarchy(String name){
         type = Type.MONARCHY;
         leader = name;
         anger = 0;
