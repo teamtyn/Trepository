@@ -21,7 +21,6 @@ import javafx.scene.Node;
  * @version 1.0
  */
 public class SkillSetupController implements Initializable, ControlledScreen {
-
     @FXML
     private Button minus0;
 
@@ -119,7 +118,7 @@ public class SkillSetupController implements Initializable, ControlledScreen {
     private final int barMax;
     private final int maxPts;
     private int totalPts;
-    private final int len;
+    private int len;
     private ScreensController parentController;
 
     public SkillSetupController() {
@@ -128,7 +127,6 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         barMax = 30;
         maxPts = 75;
         totalPts = 50;
-        len = labelArray.length;
     }
 
     // Initializes the controller class
@@ -139,6 +137,8 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         pointLabelArray = new Label[] {points0, points1, points2, points3, points4};
         barsArray = new ProgressBar[] {bar0, bar1, bar2, bar3, bar4};
         labelArray = new Label[] {skill0, skill1, skill2, skill3, skill4};
+        // DO NOT MOVE LEN DECLARATION
+        len = labelArray.length;
         setUp();
     }
 
@@ -257,7 +257,7 @@ public class SkillSetupController implements Initializable, ControlledScreen {
         }
         System.out.println("This is the end of our game. Look out for the sequel: '" + player.getName() + " Clicks Buttons II: Even More Buttons!'");
         System.out.println(closingMessage);
-        System.exit(0);
+        parentController.setScreen("StarMap");
     }
     @FXML
     private void plusButtonAction(ActionEvent event) {

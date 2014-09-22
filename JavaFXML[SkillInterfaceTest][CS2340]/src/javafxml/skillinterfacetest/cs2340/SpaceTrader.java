@@ -14,8 +14,9 @@ public class SpaceTrader extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         ScreensController mainContainer = new ScreensController();
-        mainContainer.loadScreen("Menu","Menu.fxml");
-        mainContainer.loadScreen("SkillSetup","SkillSetup.fxml");
+        mainContainer.loadScreen("Menu", "Menu.fxml");
+        mainContainer.loadScreen("SkillSetup", "SkillSetup.fxml");
+        mainContainer.loadScreen("StarMap", "StarMap.fxml");
         mainContainer.setScreen("Menu");
 
         Group root = new Group();

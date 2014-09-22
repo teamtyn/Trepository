@@ -57,7 +57,7 @@ import javafx.util.Duration;
  * @author TYN
  * @version 1.0
  */
-public class ScreensController  extends StackPane {
+public class ScreensController extends StackPane {
 
     // Holds the screens to be displayed
     private HashMap<String, Node> screens;

@@ -1,7 +1,10 @@
 package javafxml.skillinterfacetest.cs2340.star_system;
 
-import java.util.Random;
-import javafx.application.Application;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,15 +15,16 @@ import javafx.scene.shape.CircleBuilder;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafxml.skillinterfacetest.cs2340.SkillSetupController;
+
+import javafxml.skillinterfacetest.cs2340.*;
 
 /**
  * 
  * @author David Purcell
  */
-public class StarMap extends Application {
+public class StarMapController implements Initializable, ControlledScreen {
+    private ScreensController parentController;
 
-    @Override
     public void start(Stage primaryStage) {
         StarSystem[] systems = {new StarSystem("Sys 1"),new StarSystem("Sys 2"),new StarSystem("Sys 3"),
                                 new StarSystem("Sys 4"),new StarSystem("Sys 5"),new StarSystem("Sys 6")};
@@ -31,7 +35,7 @@ public class StarMap extends Application {
         primaryStage.show();
     }
 
-    public void viewUniverse(Group root, StarSystem[] systems){
+    public void viewUniverse(Group root, StarSystem[] systems) {
         for(StarSystem sys : systems){
             Circle star = CircleBuilder.create()
                 .centerX(sys.getCoordinateX())
@@ -66,7 +70,7 @@ public class StarMap extends Application {
         }
     }
 
-    public void viewSystem(Group root, StarSystem system, StarSystem[] systems){
+    public void viewSystem(Group root, StarSystem system, StarSystem[] systems) {
         Text systemText = new Text(600, 50, system.getName());
         systemText.setFont(Font.font("Verdana", 40));
         systemText.setFill(Color.WHITE);
@@ -106,7 +110,7 @@ public class StarMap extends Application {
         }
     }
 
-    public void viewPlanet(Group root, Planet planet, StarSystem system, StarSystem[] systems){
+    public void viewPlanet(Group root, Planet planet, StarSystem system, StarSystem[] systems) {
         Text planetTitle = new Text(600, 50, planet.getName());
         planetTitle.setFont(Font.font ("Verdana", 40));
         planetTitle.setFill(Color.WHITE);
@@ -151,7 +155,18 @@ public class StarMap extends Application {
         root.getChildren().add(monarch);
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    @FXML
+    private void monarchyButtonAction(ActionEvent event) {
+        System.out.println("pressed for monarchy");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        //TODO
+    }
+
+    @Override
+    public void setScreenParent(ScreensController parentController) {
+        this.parentController = parentController;
     }
 }

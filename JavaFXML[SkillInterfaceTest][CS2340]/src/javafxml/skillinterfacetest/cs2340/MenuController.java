@@ -11,8 +11,6 @@ import javafx.fxml.Initializable;
  * @version 1.0
  */
 public class MenuController implements Initializable, ControlledScreen {
-
-    @FXML
     private ScreensController parentController;
 
     @FXML
