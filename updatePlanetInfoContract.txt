@@ -1,0 +1,6 @@
+Operation:          upsatePanetInfo(planet: planetView)
+Cross References:   Use Cases: Travel to Planet
+Preconditions:      A planet has been selected from the star map.
+Postcondition:      -The planet information pane is updated to the selected planet's information.
+                    -The travel button is enabled if the player has sufficient fuel.
+
