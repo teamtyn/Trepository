@@ -1,0 +1,7 @@
+Operation:          save(out: OutputStream)
+Cross References:   Use Cases: Autosave
+Preconditions:      The OutputStream out is in a state that allows for writing.
+Postconditions:     - The instance of GameModel used to store game state is
+                      written to the OutputStream.
+                    - The data written to the OutputStream is in a serialized
+                      form that can be loaded with load(in: InputStream).
