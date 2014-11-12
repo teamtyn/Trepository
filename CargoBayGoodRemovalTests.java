@@ -59,7 +59,7 @@ public final class CargoBayGoodRemovalTests {
      */
     @Test
     public void testRemoveNegative() {
-        System.out.println("removeTooMany");
+        System.out.println("removeNegative");
         CargoBay cargoBay = new CargoBay(MAX_CAPACITY);
         cargoBay.addTradeGood("Furs", MAX_CAPACITY);
         int expResult = 0;
